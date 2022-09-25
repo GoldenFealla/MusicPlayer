@@ -1,0 +1,117 @@
+:root {
+    --width: 1280px;
+    --height: 720px;
+    --button-height: 30px;   
+    --padding: 10px ;
+    --padding-side: 20px;
+    --font-color: #fff;
+    --font-size: 20px;
+    --font-weight: 600;
+    --dark-color: #1C0C5B;
+    --normal-color: #3D2C8D;
+    --midtone-color: #916BBF;
+    --hightlight-color: #C996CC;
+    --margin-left: 10px;
+}
+
+body {
+    background-color: var(--dark-color);
+    color: var(--font-color);
+    font-family: 'Roboto', sans-serif;
+    font-weight: var(--font-weight);
+}
+
+#display {
+    width: 100%;
+    height: var(--height);
+}
+
+#input {
+    width: 100%;
+    height: var(--button-height);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: calc(var(--height) + var(--button-height) + 80px);
+    margin-left: var(--margin-left);
+}
+
+#container {
+    position: absolute;
+    width: var(--width);
+    height: var(--height);
+    background-color: var(--midtone-color);
+    clip: rect(0px, var(--width), var(--height), 0px);
+    border-radius: 10px;
+}
+
+#background {
+    position: absolute;
+    width: var(--width);
+    height: var(--height);
+    background-size: cover;
+    border-radius: 10px;
+}
+
+#canvas-position {
+    position: absolute;
+    top: calc(var(--height) - 300px);
+    left: 100px;
+}
+
+#time-count {
+    position: absolute;
+    top: calc(var(--height) - 150px);
+    left: 100px;
+    font-size: 30px;
+    font-weight: 200;
+}
+
+#slide {
+    position: absolute;
+    top: calc(var(--height) - 130px);
+    left: 180px;
+    height: 5px;
+    width: 320px;
+}
+
+.padding {
+    padding: var(--padding);
+}
+
+.padding-size {
+    padding: var(--padding-size);
+}
+
+.font {
+    font-family: 'Roboto', sans-serif;
+    font-weight: var(--font-weight);
+    font-size: var(--font-size);
+    color: var(--font-color);
+}
+
+.btn {
+    border-radius: var(--button-height);
+    border: 0px;
+    background-color: var(--normal-color);
+    margin-left: calc(var(--margin-left) / 2);
+    margin-right: calc(var(--margin-left) / 2);
+}
+
+.btn:hover {
+    transition: ease-in 0.2s;
+    background-color: var(--midtone-color);
+}
+
+.btn input[type="file"] {
+    display: none;
+}
+
+.center {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}

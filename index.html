@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Music Player</title>
+</head>
+
+<body>
+    <div style="height: 80px; background-color: var(--dark-color); background-blend-mode: darken"></div>
+    <div>
+        <div id="display" class="center" style="overflow: hidden; border-radius: 10px;">
+            <div id="container">
+                <div id="background"></div>
+                <div id="canvas-position">
+                    <canvas id="audio-reaction"></canvas>
+                </div>
+                <div id="time-and-slide">
+                    <div id="time-count" class="font"></div>
+                    <div id="slide">
+                        <div id="track-life"></div>
+                        <div id="track"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="input">
+            <label class="btn font padding center">
+                <span>Choose Background Image</span>
+                <input id="background-input" type="file">
+            </label>
+            <label class="btn font padding center">
+                <span>Choose Audio File</span>
+                <input id="music-input" type="file">
+            </label>
+            <button class="btn font padding center" onclick="start()">Start</button>
+        </div>
+    </div>
+    <script src="manager.js"></script>
+    <script src="audio.js"></script>
+    <script src="bgeffect.js"></script>
+    <script src="time.js"></script>
+    <script src="slide.js"></script>
+</body>
+
+</html>
