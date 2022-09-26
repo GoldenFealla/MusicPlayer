@@ -1,6 +1,5 @@
 let musicInput = document.getElementById("music-input");
 
-
 let audio = new Audio();
 audio.src = "";
 let audioReaction;
@@ -9,8 +8,7 @@ musicInput.addEventListener("change", function () {
     try {
         let tempMusic = URL.createObjectURL(musicInput.files[0]);
         audio.src = tempMusic;
-        audioReaction.changeAudio(audio);
-        startTrack();
+        //audioReaction.changeAudio(audio);
     } catch (error) {}
 });
 
@@ -61,6 +59,8 @@ function startAudio() {
     audio.volume = 0.5;
     if(audio.paused || audio.ended) {
         audio.play();
+        startTrack();
+        startTime();
     }
     setUp();
 }
