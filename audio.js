@@ -57,6 +57,7 @@ class AudioReaction extends CreateMediaSource{
 function startAudio() {
     console.log('triggered the audio functions');
     audio.volume = 0.5;
+    volume.value = 50;
     if(audio.paused || audio.ended) {
         audio.play();
         startTrack();
