@@ -3,10 +3,6 @@ const trackLife = document.getElementById('track-life');
 
 const height = 5;
 
-const run = setInterval(() => {
-    trackRun();
-}, 100);
-
 function startTrack() {
     Object.assign(trackLife.style, {
         position: "absolute",
@@ -21,12 +17,11 @@ function startTrack() {
         height: `${height}px`, 
         backgroundColor: ' rgb(255, 255, 255)',
     });
+
+    trackRun();
 }
 
 function trackRun() {
     track.style.width = `${(audio.currentTime / audio.duration) * 85}%`;
-}
-
-function clearTrack() {
-    clearInterval(run);
+    requestAnimationFrame(trackRun);
 }

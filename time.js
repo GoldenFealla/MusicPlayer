@@ -1,19 +1,16 @@
 
-let duration = 0;
-
 const timeCount = document.getElementById("time-count");
 
 function startTime() {
-    if(!duration) {
-        resetTime();
-        setInterval(() => {
-            duration += 1;
-            timeCount.innerText = new Date(duration * 1000).toISOString().substring(14, 19);
-        }, 1000);
-    }
+    resetTime();
+    test();
+}
+
+function test() {
+    timeCount.innerText = new Date(audio.currentTime * 1000).toISOString().substring(14, 19);
+    requestAnimationFrame(test);
 }
 
 function resetTime() {
-    duration = 0;
     timeCount.innerText = "00:00";
 }
