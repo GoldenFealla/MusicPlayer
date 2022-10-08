@@ -1,6 +1,4 @@
 :root {
-    --res-width: 1920px;
-    --res-height: 1080px;
     --font-color: #fff;
     --dark-color: #1C0C5B;
     --normal-color: #3D2C8D;
@@ -12,6 +10,9 @@
 }
 
 body {
+    padding: 1rem 0px 1rem 0px;
+    margin: 0px;
+    width: 100%;
     background-color: var(--dark-color);
     color: var(--font-color);
 }
@@ -29,21 +30,38 @@ body::-webkit-scrollbar-thumb {
 }
 
 #display {
-    width: calc(var(--res-width) * 0.8);
-    height: calc(var(--res-height) * 0.8);
+    overflow: hidden;
+    width: calc(var(--res-width));
+    height: calc(var(--res-height));
     background-color: var(--normal-color);
 }
 
+#display > div {
+    position: absolute;
+}
+
+#background {
+    width: calc(var(--res-width));
+    height: calc(var(--res-height));
+}
+
 #controller {
-    width: calc(var(--res-width) * 0.8);
+    width: calc(var(--res-width));
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
-
 }
 
 #play {
+    width: 2rem;
+    height: 2rem;
     margin-left: 0.3rem;
     margin-right: 0.3rem;
+    transition: filter 0.1s ease-in;
+}
+
+#play:hover {
+    filter: brightness(1.5);
+    transition: filter 0.1s ease-out;
 }
 
 input[type=range] {
@@ -58,10 +76,12 @@ input[type=range]::-webkit-slider-thumb {
     height: 1rem;
     background-color: var(--midtone-color);
     border-radius: 50%;
+    transition: background-color 0.2s ease-in;
 }
 
 input[type=range]::-webkit-slider-thumb:hover {
     background-color: var(--normal-color);
+    transition: background-color 0.2s ease-out;
 }
 
 input[type="file"] {
@@ -93,8 +113,39 @@ input[type="file"] {
     border-radius: 2rem;
     background-color: var(--midtone-color);
     cursor: pointer;
+    transition: background-color 0.2s ease-in;
 }
 
 .input-file:hover {
     background-color: var(--normal-color);
+    transition: background-color 0.2s ease-out;
+}
+
+@media screen and (max-width: 720px) {
+    #play {
+        width: 1rem;
+        height: 1rem;
+    }
+
+    input[type=range]::-webkit-slider-thumb {
+        width: 0.5rem;
+        height: 0.5rem;
+    }
+
+    input[type=range] {
+        height: 0.1rem;
+    }
+
+    .input-file {
+        padding: 0.5rem 1rem;
+        margin: 0rem 0.5rem; 
+    }
+
+    #import {
+        flex-direction: column;
+    }
+
+    .input-file {
+        margin: 0.5rem 0rem;
+    }
 }
