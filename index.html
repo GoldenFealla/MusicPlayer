@@ -5,56 +5,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="#">
     <link rel="stylesheet" href="styles.css">
     <title>Music Player</title>
 </head>
 
 <body>
-    <div style="height: 80px; background-color: var(--dark-color); background-blend-mode: darken"></div>
-    <div>
-        <div id="display" class="center" style="overflow: hidden; border-radius: 10px;">
-            <div id="container">
-                <div id="content" style="position: absolute;">
-                    <div id="background"></div>
-                    <div id="foreground" class="hidden">
-                        <div id="wave">
-                            <canvas id="audio-reaction"></canvas>
-                        </div>
-                        <div id="time-and-slide">
-                            <div id="time-count" class="font"></div>
-                            <div id="slide">
-                                <div id="track-life"></div>
-                                <div id="track"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div id="controller">
-                    <button id="playbutton">test</button>
-                    <input id="volume" type="range" min="0" max="100">
-                    <input id="goto" type="range" min="0" max="100">
-                </div>
+    <div id="main" class="center col">
+        <div id="display">
+            <div>
+                <canvas id="audio-reaction"></canvas>
             </div>
         </div>
-
-        <div id="input">
-            <label class="btn font padding center">
-                <span>Choose Background Image</span>
-                <input id="background-input" type="file">
-            </label>
-            <label class="btn font padding center">
-                <span>Choose Audio File</span>
-                <input id="music-input" type="file">
-            </label>
-            <button class="btn font padding center" onclick="start()">Start</button>
+        <div id="controller" class="center row">
+            <input id="play" type="image" src="./images/play.svg" width="30rem" height="30rem">
+            <input id="volume" type="range" min="0" max="100" value="50">
+            <input id="slide" type="range" style="width: 100%" value="0">
         </div>
     </div>
-    <script src="manager.js"></script>
-    <script src="audio.js"></script>
-    <script src="bgeffect.js"></script>
-    <script src="time.js"></script>
-    <script src="slide.js"></script>
-    <script src="controller.js"></script>
+    <div id="import" class="center row">
+        <label for="au" class="input-file">
+            <input id="au" type="file" accept="audio/*">
+            Audio
+        </label>
+        <label for="bg" class="input-file">
+            <input id="bg" type="file" accept="image/*">
+            Background
+        </label>
+    </div>
+    <script src="script.js"></script>
 </body>
 
 </html>
