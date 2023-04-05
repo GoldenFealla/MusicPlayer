@@ -154,7 +154,6 @@ function initialize() {
 
     displayAudio.width = width;
     displayAudio.height = height;
-    displayAudio.divisor = 16;
     displayAudio.mode = true;
 
     displayAudio.animate(audioController.audioReaction);
