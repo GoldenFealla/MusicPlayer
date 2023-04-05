@@ -41,7 +41,6 @@ window.addEventListener('resize', () => {
 });
 
 
-// import "./canvas.ts"
 const audioController = new AudioController(new Audio());
 
 audioController.audioReaction.config = {
@@ -64,7 +63,6 @@ const bg = document.getElementById('bg') as HTMLInputElement;
 const mode = document.getElementById('mode') as HTMLSelectElement;
 
 mode.addEventListener('change', () => {
-    console.log(mode.value)
     displayAudio.mode = mode.value === "1" ? false : true;
 })
 
@@ -72,6 +70,7 @@ mode.addEventListener('change', () => {
 au.addEventListener('change', () => {
     let tempURL = URL.createObjectURL(au.files[0]);
     audio.src = tempURL;
+    audioController.audioReaction.audioCore.context.resume();
 });
 
 bg.addEventListener('change', () => {
@@ -157,5 +156,6 @@ function initialize() {
     displayAudio.mode = true;
 
     displayAudio.animate(audioController.audioReaction);
+    play.src = play_svg;
 }
 
