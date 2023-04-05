@@ -1,9 +1,8 @@
 import { AudioController } from "./core";
 import { DisplayAudio } from "./canvas";
-const { BASE_URL } = import.meta.env;
 
-const play_svg = `${BASE_URL}public/images/play.svg`;
-const pause_svg = `${BASE_URL}public/images/pause.svg`;
+import play_svg from './images/play.svg';
+import pause_svg from './images/pause.svg';
 
 //Window thingy
 const root = (document.querySelector(':root') as HTMLElement).style;
