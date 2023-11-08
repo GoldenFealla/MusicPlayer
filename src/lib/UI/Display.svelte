@@ -1,51 +1,55 @@
 <script>
   import { onMount } from "svelte";
 
-  import { AudioVisualizer } from "../Services/visualizer.js";
+  import {
+    AudioCore,
+    createAudioVisualizer,
+  } from "../Services/audio";
+  import { renderByBar } from "../Services/visualizer.js";
 
-  /** @type {HTMLCanvasElement} */
-  let canvasElement;
+  /**
+   * @type {HTMLCanvasElement} canvasEl
+   */
+  let canvasEl;
+
+  /**
+   * @type {createAudioVisualizer}
+   */
+  let AudioVisualizer;
 
   onMount(() => {
-    AudioVisualizer.createAudioVisualizer(canvasElement);
+    canvasEl.width = window.innerWidth;
+    canvasEl.height = window.innerHeight;
 
-    AudioVisualizer.setHeight(canvasElement.height);
-    AudioVisualizer.setWidth(canvasElement.width);
-    AudioVisualizer.setMode(0);
-    AudioVisualizer.setBarWidth(2);
-    AudioVisualizer.setDivisor(1);
+    AudioVisualizer = new createAudioVisualizer(canvasEl);
 
-    AudioVisualizer.animate();
+    AudioCore.events.on("contextReloaded", () => {
+      AudioVisualizer.animate(renderByBar, AudioCore._aa);
+    });
   });
-
-  function test(e) {
-    console.log(e);
-
-    AudioVisualizer.setHeight(canvasElement.height);
-    AudioVisualizer.setWidth(canvasElement.width);
-  }
 </script>
 
-<div class="container">
-  <canvas bind:this={canvasElement} on:resize={test} />
+<div class="wrapper">
+  <canvas bind:this={canvasEl} />
 </div>
 
-<style>
-  .container {
+<style lang="scss">
+  .wrapper,
+  .wrapper > canvas {
     width: 100%;
     height: 100%;
 
+    margin: 0;
+    padding: 0;
+  }
+
+  .wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
   canvas {
-    width: 100%;
-    height: 100%;
-
-    aspect-ratio: 16 / 9;
-
-    background-color: black;
+    background-color: var(--md-sys-color-surface-variant);
   }
 </style>

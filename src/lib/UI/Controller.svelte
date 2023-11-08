@@ -157,6 +157,12 @@
     justify-content: flex-end;
 
     padding: 10px;
+
+    background: linear-gradient(
+      0deg,
+      rgba(var(--md-sys-color-on-surface), 1),
+      transparent
+    );
   }
 
   .container,
@@ -215,7 +221,8 @@
     }
 
     & > .time {
-      color: white;
+      color: var(--md-sys-color-primary);
+      font-weight: 500;
       font-size: 1rem;
       width: 3rem;
     }

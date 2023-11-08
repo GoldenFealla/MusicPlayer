@@ -2,7 +2,7 @@
   import { tweened } from "svelte/motion";
   import { cubicOut } from "svelte/easing";
 
-  import { createEventDispatcher } from "svelte";
+  import { createEventDispatcher, onMount } from "svelte";
   let dispatch = createEventDispatcher();
 
   export let min = 0;
@@ -36,6 +36,18 @@
   $: {
     progress.set(value);
   }
+
+  onMount(() => {
+    const sliderStyleElement = document.createElement("style");
+
+    sliderStyleElement.innerHTML = `
+      .track::before {
+        background-color: var(--md-sys-color-outline) !important;; 
+      }
+    `;
+
+    sliderEl.shadowRoot.appendChild(sliderStyleElement);
+  });
 </script>
 
 <div>

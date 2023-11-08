@@ -23,6 +23,10 @@
       .container::before {
         background-color: var(--md-sys-color-surface, #f3edf7) !important;
       }
+
+      .container .scroller {
+        overflow: hidden !important;
+      }
     `;
 
     dialogEl.shadowRoot.appendChild(dialogStyleElement);

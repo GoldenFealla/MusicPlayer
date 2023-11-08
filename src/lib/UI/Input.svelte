@@ -1,5 +1,5 @@
 <script>
-  import { AudioPlayer } from "../Services/audio.js";
+  import { AudioPlayer, AudioCore } from "../Services/audio.js";
 
   /**
    * @type {HTMLInputElement}
@@ -19,6 +19,7 @@
     const tempURL = URL.createObjectURL(file);
 
     AudioPlayer.changeSource(tempURL);
+    AudioCore.reloadContext(AudioPlayer.audio);
   }
 </script>
 
